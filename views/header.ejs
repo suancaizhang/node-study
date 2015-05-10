@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>呵呵博客---基于node.js</title>
+		<link rel="stylesheet" href="/stylesheets/style.css">
+	</head>
+	<body>
+		<header>
+		<form action="/search" method="GET">
+			<input type="text" name="keyword" placeholder="搜索文章标题" class="search" />
+			<input type="submit" name="submit" value="搜索" class="s-submit" />
+		</form>
+			<h1><%= title %></h1>
+		</header>
+		<nav>
+			<a title="主页" href="/" class="current">主页</a>
+			<% if (user) { %>
+			<a title="发表" href="/post">发表</a>
+			<a title="退出" href="/logout" onclick="return alert('退出当前登录账号！');">退出</a>
+			<% } else { %>
+			<a title="登录" href="/login">登录</a>
+			<a title="注册" href="/reg">注册</a>
+			<% } %>				
+		</nav>	
+		<article>
+			<% if (success) { %>
+			<div><%= success %></div>
+			<% } %>
+			<% if (error) { %>
+			<div><%= error %> </div>
+			<% } %>
